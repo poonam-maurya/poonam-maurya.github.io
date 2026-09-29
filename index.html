@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Poonam Maurya · Wireless IoT Research</title>
+<meta name="description" content="Poonam Maurya, postdoctoral researcher in wireless communication and LoRaWAN IoT for agricultural, environmental and industrial monitoring.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#F3F5F4; --paper:#FFFFFF; --ink:#17202B; --muted:#4A5563;
+  --signal:#1F5FAE; --field:#2E6B4F; --rule:#D5DBDE; --chip:#E6ECEB;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#121820; --paper:#18202A; --ink:#E8ECEF; --muted:#A7B0BA;
+    --signal:#7FAEEB; --field:#7CC39E; --rule:#2C3743; --chip:#222C37;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#121820; --paper:#18202A; --ink:#E8ECEF; --muted:#A7B0BA;
+  --signal:#7FAEEB; --field:#7CC39E; --rule:#2C3743; --chip:#222C37;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px)}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--signal);text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:3px solid var(--signal);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+
+/* Nav */
+header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+header.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:60px}
+.brand{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--ink);text-decoration:none}
+nav ul{list-style:none;margin:0;padding:0;display:flex;gap:4px;flex-wrap:wrap}
+nav a{display:inline-block;padding:10px 12px;color:var(--muted);text-decoration:none;font-size:15px;font-weight:500;border-radius:6px}
+nav a:hover{color:var(--ink);background:var(--chip)}
+@media (max-width:760px){nav ul{display:none}}
+
+/* Hero */
+.hero{padding:72px 0 0}
+.hero-grid{display:grid;grid-template-columns:1fr 220px;gap:48px;align-items:end}
+.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(44px,7vw,76px);line-height:1.02;letter-spacing:-.015em;margin:0 0 20px}
+.role{font-size:19px;margin:0 0 6px;color:var(--ink);font-weight:500}
+.role span{color:var(--muted);font-weight:400}
+.lede{font-family:var(--serif);font-size:22px;line-height:1.5;color:var(--muted);max-width:36em;margin:24px 0 28px}
+.links{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 18px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;border:1.5px solid var(--ink);color:var(--ink)}
+.btn.primary{background:var(--ink);color:var(--ground)}
+.btn:hover{background:var(--chip)}
+.btn.primary:hover{background:var(--signal);border-color:var(--signal);color:#fff}
+.portrait{border-radius:110px 110px 12px 12px;overflow:hidden;border:1px solid var(--rule);aspect-ratio:5/6;background:#E2E9E8}
+.portrait img{width:100%;height:100%;object-fit:cover}
+.chirp-band{margin-top:56px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:14px 0}
+.chirp{width:100%;height:72px;display:block}
+.chirp path{fill:none;stroke-width:1.6;vector-effect:non-scaling-stroke}
+.chirp .pre{stroke:var(--rule)}
+.chirp .dat{stroke:var(--signal)}
+.chirp-cap{font-size:13px;color:var(--muted);margin:8px 0 0}
+@media (max-width:760px){
+  .hero{padding-top:40px}
+  .hero-grid{grid-template-columns:1fr;gap:28px}
+  .portrait{width:160px;order:-1}
+}
+
+/* Sections */
+section{padding:88px 0 0}
+.sec-head{display:grid;grid-template-columns:220px 1fr;gap:48px;margin-bottom:28px}
+.sec-head h2{font-family:var(--serif);font-weight:500;font-size:34px;line-height:1.15;margin:0}
+.sec-head p{margin:6px 0 0;color:var(--muted);max-width:40em}
+.sec-body{margin-left:268px}
+@media (max-width:860px){.sec-head{grid-template-columns:1fr;gap:8px}.sec-body{margin-left:0}}
+
+/* Research themes */
+.themes{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--ink)}
+.theme{padding:24px 28px 28px 0;border-bottom:1px solid var(--rule)}
+.theme:nth-child(even){padding-left:28px;padding-right:0;border-left:1px solid var(--rule)}
+.theme h3{font-family:var(--serif);font-weight:600;font-size:22px;line-height:1.25;margin:0 0 8px}
+.theme p{margin:0 0 14px;color:var(--muted)}
+.proj{display:inline-block;font-size:13px;font-weight:600;color:var(--field);background:color-mix(in srgb,var(--field) 12%,transparent);padding:3px 10px;border-radius:4px}
+@media (max-width:760px){.themes{grid-template-columns:1fr}.theme,.theme:nth-child(even){padding:22px 0;border-left:0}}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.tags span{font-size:14px;padding:5px 12px;border-radius:999px;background:var(--chip);color:var(--ink)}
+.tags-label{font-weight:600;font-size:15px;margin:32px 0 0}
+
+/* Timeline */
+.timeline{list-style:none;margin:0;padding:0;border-left:2px solid var(--rule)}
+.timeline li{position:relative;padding:0 0 30px 28px}
+.timeline li::before{content:"";position:absolute;left:-7px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--ground);border:2px solid var(--muted)}
+.timeline li.now::before{background:var(--signal);border-color:var(--signal)}
+.when{font-size:14px;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums}
+.timeline h3{font-size:18px;margin:2px 0 0;font-weight:600}
+.timeline .where{margin:0;color:var(--signal);font-weight:500}
+.timeline p.desc{margin:6px 0 0;color:var(--muted);max-width:44em}
+
+/* Publications */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.filters button{font:inherit;font-size:15px;font-weight:500;min-height:44px;padding:8px 16px;border-radius:999px;border:1.5px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer}
+.filters button:hover{border-color:var(--ink)}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--ground);border-color:var(--ink)}
+.filters .count{opacity:.65;margin-left:4px;font-variant-numeric:tabular-nums}
+.pubgroup h3{font-family:var(--serif);font-weight:600;font-size:22px;margin:32px 0 4px}
+.pubgroup:first-of-type h3{margin-top:0}
+.publist{list-style:none;margin:0;padding:0}
+.publist li{padding:16px 0;border-bottom:1px solid var(--rule)}
+.pt{font-weight:600;line-height:1.4;display:block}
+.pa{color:var(--muted);font-size:15px;display:block;margin-top:3px}
+.pa b{color:var(--ink);font-weight:600}
+.pv{font-size:15px;display:block;margin-top:2px}
+.pv i{font-style:italic}
+.pv a{margin-left:6px;font-weight:600;white-space:nowrap}
+.hidden{display:none}
+
+/* Two column lists */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.cols h3{font-family:var(--serif);font-weight:600;font-size:22px;margin:0 0 10px}
+.cols ul{margin:0;padding-left:20px;color:var(--muted)}
+.cols li{margin:0 0 10px}
+.cols li strong{color:var(--ink);font-weight:600}
+@media (max-width:760px){.cols{grid-template-columns:1fr;gap:28px}}
+
+/* Contact */
+.contact{background:var(--paper);border:1px solid var(--rule);border-radius:16px;padding:36px}
+.contact dl{display:grid;grid-template-columns:140px 1fr;gap:12px 20px;margin:0}
+.contact dt{color:var(--muted);font-weight:500}
+.contact dd{margin:0;overflow-wrap:anywhere}
+@media (max-width:560px){.contact dl{grid-template-columns:1fr;gap:2px}.contact dd{margin-bottom:12px}.contact{padding:24px}}
+footer{padding:72px 0 48px;color:var(--muted);font-size:14px}
+footer .wrap{border-top:1px solid var(--rule);padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Poonam Maurya</a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#teaching">Teaching &amp; service</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <h1>Poonam Maurya</h1>
+          <p class="role">Postdoctoral Researcher <span>at the University of California, Merced</span></p>
+          <p class="role"><span>Previously postdoc at Aalborg University, Denmark · PhD, IIT Bhilai</span></p>
+          <p class="lede">I study how low-power wireless networks behave in the real world, from soil sensors on a farm to transmitters buried beside district-heating pipes, and use measurements and machine learning to design IoT connectivity that keeps working where coverage is hardest.</p>
+          <div class="links">
+            <a class="btn primary" href="#publications">See publications</a>
+            <a class="btn" href="mailto:dspoonammaurya@gmail.com">Email me</a>
+            <a class="btn" href="https://www.linkedin.com/in/poonammaurya">LinkedIn</a>
+          </div>
+        </div>
+        <div class="portrait"><img src="data:image/jpeg;base64,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" alt="Portrait of Poonam Maurya" width="320" height="384"></div>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="chirp-band">
+        <svg class="chirp" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true"><path class="pre" d="M0.0,120 L66.7,0 M66.7,120 L133.3,0 M133.3,120 L200.0,0 M200.0,120 L266.7,0 M266.7,120 L333.3,0 M333.3,120 L400.0,0"/><path class="dat" d="M400.0,48.9 L427.2,0 M427.2,120 L466.7,48.9 M466.7,53.3 L496.3,0 M496.3,120 L533.3,53.3 M533.3,53.3 L563.0,0 M563.0,120 L600.0,53.3 M600.0,57.8 L632.1,0 M632.1,120 L666.7,57.8 M666.7,115.6 L730.9,0 M730.9,120 L733.3,115.6 M733.3,62.2 L767.9,0 M767.9,120 L800.0,62.2 M800.0,62.2 L834.6,0 M834.6,120 L866.7,62.2 M866.7,115.6 L930.9,0 M930.9,120 L933.3,115.6 M933.3,26.7 L948.1,0 M948.1,120 L1000.0,26.7 M1000.0,40.0 L1022.2,0 M1022.2,120 L1066.7,40.0 M1066.7,8.9 L1071.6,0 M1071.6,120 L1133.3,8.9 M1133.3,115.6 L1197.5,0 M1197.5,120 L1200.0,115.6"/></svg>
+        <p class="chirp-cap">A LoRa chirp sequence: six preamble up-chirps, then one data symbol per letter of my name.</p>
+      </div>
+    </div>
+  </div>
+
+  <section id="research">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Research</h2>
+        <p>Experimental wireless communication: radio propagation measurements, channel modelling and data-driven analysis in real indoor and outdoor environments, with a focus on LPWAN IoT for environmental, agricultural and industrial monitoring.</p>
+      </div>
+      <div class="sec-body">
+        <div class="themes">
+          <article class="theme">
+            <h3>LoRaWAN for smart farming</h3>
+            <p>Designing and deploying a complete end-to-end LoRaWAN architecture, from sensor to gateway to backhaul, at the UC Merced Smart Farm for real-time monitoring of environmental and soil parameters.</p>
+            <span class="proj">F3: Farms, Food and Future</span>
+          </article>
+          <article class="theme">
+            <h3>Cellular–satellite multi-connectivity</h3>
+            <p>Machine-learning-driven link activation between cellular and satellite (including Starlink) networks to keep rural monitoring connected, for example during livestock transport, plus CNN-LSTM prediction of mobile network KPIs.</p>
+            <span class="proj">COMMECT · Aalborg University</span>
+          </article>
+          <article class="theme">
+            <h3>Sensing beside buried infrastructure</h3>
+            <p>Measurement campaigns and path loss models for 868 MHz links between pipe-monitoring sensors and above-ground receivers, and thermally powered autonomous leak detection for district-heating pipes.</p>
+            <span class="proj">PipeSENSE · Aalborg University</span>
+          </article>
+          <article class="theme">
+            <h3>LoRaWAN algorithms and limits</h3>
+            <p>Spreading-factor allocation, distributed learning for tracking performance, relay-mode energy use, improved packet detection for chirp spread spectrum, and a modular hybrid LoRaWAN simulator.</p>
+            <span class="proj">PhD thesis · IIT Bhilai</span>
+          </article>
+        </div>
+
+        <p class="tags-label">Interests</p>
+        <div class="tags">
+          <span>Internet of Things</span><span>LPWAN</span><span>LoRa &amp; LoRaWAN</span><span>Wireless communication</span><span>Signal processing</span><span>Machine learning</span><span>Communication protocols</span><span>Industry 5.0</span>
+        </div>
+        <p class="tags-label">Tools</p>
+        <div class="tags">
+          <span>Python</span><span>MATLAB</span><span>Software-defined radio</span><span>GNU Radio</span><span>openSAND</span><span>COMSOL</span><span>tc-netem</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Experience &amp; education</h2>
+        <p>From a sensor-based walking stick for blind people to network deployments on two continents.</p>
+      </div>
+      <div class="sec-body">
+        <ol class="timeline" reversed>
+          <li class="now">
+            <span class="when">2026</span>
+            <h3>NSF I-Corps Program</h3>
+            <p class="where">University of California, Berkeley, USA</p>
+            <p class="desc">Customer discovery and technology commercialization for the AquaMAR project, interviewing agricultural stakeholders about irrigation and groundwater challenges.</p>
+          </li>
+          <li class="now">
+            <span class="when">2025 – present</span>
+            <h3>Postdoctoral Researcher</h3>
+            <p class="where">University of California, Merced, USA</p>
+            <p class="desc">F3 (Farms, Food and Future): end-to-end LoRaWAN deployment at the UC Merced Smart Farm.</p>
+          </li>
+          <li>
+            <span class="when">2023 – 2025</span>
+            <h3>Postdoctoral Researcher</h3>
+            <p class="where">Aalborg University, Denmark</p>
+            <p class="desc">PipeSENSE and COMMECT: multi-connectivity and intelligent sensing for rural and industrial IoT. Member of the AI group at Aalborg University.</p>
+          </li>
+          <li>
+            <span class="when">2018 – 2023</span>
+            <h3>Direct PhD Fellow</h3>
+            <p class="where">Indian Institute of Technology Bhilai, India</p>
+            <p class="desc">Thesis: <i>LoRaWAN Algorithms, Performance, and Limitations</i>. Supervised by Dr. Arzad Alam Kherani. MHRD Research Fellowship.</p>
+          </li>
+          <li>
+            <span class="when">2016</span>
+            <h3>Student Intern</h3>
+            <p class="where">Indian Institute of Information Technology, Allahabad</p>
+            <p class="desc">Wireless relay simulation on the GNU Radio platform.</p>
+          </li>
+          <li>
+            <span class="when">2013 – 2017</span>
+            <h3>B.Tech</h3>
+            <p class="where">National Institute of Technology Hamirpur, India</p>
+            <p class="desc">Thesis: an electronic walking stick that helps visually impaired people detect obstacles.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="publications">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Publications</h2>
+        <p>Journal articles, conference papers, an edited book and book chapters.</p>
+      </div>
+      <div class="sec-body">
+        <div class="filters" role="group" aria-label="Filter publications">
+          <button type="button" data-f="all" aria-pressed="true">All<span class="count"></span></button>
+          <button type="button" data-f="journal" aria-pressed="false">Journal<span class="count"></span></button>
+          <button type="button" data-f="conference" aria-pressed="false">Conference<span class="count"></span></button>
+          <button type="button" data-f="book" aria-pressed="false">Books &amp; chapters<span class="count"></span></button>
+        </div>
+
+        <div class="pubgroup" data-g="journal">
+          <h3>Journal articles</h3>
+          <ul class="publist">
+            <li><span class="pt">The future of supply chain management in Industry 5.0: Emerging challenges and strategic opportunities</span><span class="pa">M. Sharma, <b>P. Maurya</b>, A. Hazra, A. Tomar</span><span class="pv"><i>Renewable and Sustainable Energy Reviews</i>, vol. 242, 117327, 2026 <a href="https://doi.org/10.1016/j.rser.2026.117327">DOI</a></span></li>
+            <li><span class="pt">Unleashing the potential of Industrial IoT and Industry 5.0</span><span class="pa"><b>P. Maurya</b>, A. Hazra, A. Kalita</span><span class="pv"><i>IEEE Engineering Management Review</i>, 2025 <a href="https://doi.org/10.1109/EMR.2025.3644409">DOI</a></span></li>
+            <li><span class="pt">Machine learning-driven cellular-satellite multi-connectivity for monitoring livestock transport in rural areas</span><span class="pa"><b>P. Maurya</b>, A. Ramírez-Arroyo, T. B. Sørensen, S. B. Damsgaard</span><span class="pv"><i>Computer Communications</i>, 108366, 2025</span></li>
+            <li><span class="pt">Experimental investigation and path loss modeling for 868 MHz ISM band communication between pipe monitoring sensors and above ground receivers</span><span class="pa">T. B. Sørensen, <b>P. Maurya</b>, P. H. Christensen, S. B. Damsgaard, S. Duus, F. Moradi</span><span class="pv"><i>IEEE Internet of Things Journal</i>, 2025</span></li>
+            <li><span class="pt">Thermally powered autonomous water leakage detection system for district heating pipes</span><span class="pa">Y. K., W. J. Szczerek, M. Dahl, J. B., Y. Rezaeiya, S. R., K. Laursen, A. M., <b>P. Maurya</b>, M. Sadeghi, S. Duus, K. H. Overgaard, T. B. Sørensen, F. M., M. Zamani</span><span class="pv"><i>IEEE Sensors Journal</i>, vol. 25, no. 17, pp. 32953–32963, 2025</span></li>
+            <li><span class="pt">A comprehensive survey of data-driven solutions for LoRaWAN: Challenges and future directions</span><span class="pa"><b>P. Maurya</b>, A. Hazra, P. Kumari, T. B. Sørensen, S. K. Das</span><span class="pv"><i>ACM Transactions on Internet of Things</i>, vol. 6, no. 1, Article 6, 2025</span></li>
+            <li><span class="pt">Cognitive computing and machine intelligence in fog–cloud infrastructure for Industry 5.0</span><span class="pa">A. Hazra, <b>P. Maurya</b>, A. Kalita, S. Deb, M. Gurusamy, V. G. Menon</span><span class="pv"><i>IEEE Consumer Electronics Magazine</i>, vol. 14, no. 2, pp. 20–25, 2025</span></li>
+            <li><span class="pt">Advancing Industry 5.0 with UAV-driven transformations: Future prospectives</span><span class="pa"><b>P. Maurya</b>, V. M. R. Tummala, A. Hazra, S. P. Mohanty</span><span class="pv"><i>IEEE Consumer Electronics Magazine</i>, vol. 13, no. 5, pp. 30–35, 2024</span></li>
+            <li><span class="pt">Investigating routing protocol attacks on low power and lossy IoT networks</span><span class="pa">U. Kiran, <b>P. Maurya</b>, H. Sharma</span><span class="pv"><i>SN Computer Science</i>, vol. 5, 393, 2024</span></li>
+            <li><span class="pt">A review: Spreading factor allocation schemes for LoRaWAN</span><span class="pa"><b>P. Maurya</b>, A. Singh, A. A. Kherani</span><span class="pv"><i>Telecommunication Systems</i>, vol. 80, pp. 449–468, 2022</span></li>
+            <li><span class="pt">Tracking performance in LoRaWAN-like systems and equivalence of a class of distributed learning algorithms</span><span class="pa"><b>P. Maurya</b>, A. A. Kherani</span><span class="pv"><i>IEEE Communications Letters</i>, vol. 24, no. 11, pp. 2584–2588, 2020</span></li>
+          </ul>
+        </div>
+
+        <div class="pubgroup" data-g="conference">
+          <h3>Conference &amp; workshop papers</h3>
+          <ul class="publist">
+            <li><span class="pt">Network KPI prediction in mobile networks using CNN-LSTM time series model</span><span class="pa"><b>P. Maurya</b>, A. Ramírez-Arroyo, T. B. Sørensen</span><span class="pv"><i>IEEE PIMRC</i>, 2025</span></li>
+            <li><span class="pt">Cellular-satellite multi-connectivity with link activation based on random forest classifier</span><span class="pa"><b>P. Maurya</b>, A. Ramírez-Arroyo, T. B. Sørensen</span><span class="pv"><i>IEEE WiMob</i>, Paris, France, pp. 587–592, 2024</span></li>
+            <li><span class="pt">The impact of LoRaWAN relay mode on IoT end node energy consumption</span><span class="pa"><b>P. Maurya</b>, T. B. Sørensen, H. Sharma</span><span class="pv"><i>IEEE MetroAgriFor</i>, Padua, Italy, pp. 683–688, 2024</span></li>
+            <li><span class="pt">Performance analysis of CoLoRa: Covert channel over LoRa PHY</span><span class="pa"><b>P. Maurya</b>, L. Daksha, V. Kahar, A. A. Kherani</span><span class="pv"><i>National Conference on Communications (NCC)</i>, Chennai, India, 2024</span></li>
+            <li><span class="pt">Design LoRaWAN network for unbiased communication between nodes and gateway</span><span class="pa"><b>P. Maurya</b>, A. Singh, A. A. Kherani</span><span class="pv"><i>COMSNETS</i>, Bangalore, India, pp. 581–589, 2022</span></li>
+            <li><span class="pt">A modular hybrid simulator for LoRaWAN</span><span class="pa"><b>P. Maurya</b>, A. A. Kherani</span><span class="pv"><i>IEEE ANTS</i>, 2020</span></li>
+            <li><span class="pt">Improved packet detection in LoRa-like chirp spread spectrum systems</span><span class="pa">A. A. Kherani, <b>P. Maurya</b></span><span class="pv"><i>IEEE ANTS</i>, 2019</span></li>
+          </ul>
+        </div>
+
+        <div class="pubgroup" data-g="book">
+          <h3>Books &amp; chapters</h3>
+          <ul class="publist">
+            <li><span class="pt">Industry 5.0: Key Technologies and Drivers (edited book)</span><span class="pa">I. Sarkar, A. Hazra, <b>P. Maurya</b> (eds.)</span><span class="pv">Springer Nature, 2025</span></li>
+            <li><span class="pt">Healthcare 5.0: Enabling technologies and potential use cases</span><span class="pa">M. Sahu, <b>P. Maurya</b>, S. Krishnaveni</span><span class="pv">In <i>Industry 5.0: Key Technologies and Drivers</i>, pp. 303–327, Springer, 2025</span></li>
+            <li><span class="pt">Exploring IoT communication technologies and data-driven solutions</span><span class="pa"><b>P. Maurya</b>, A. Hazra, L. Awasthi</span><span class="pv">In <i>Learning Techniques for the Internet of Things</i>, Springer</span></li>
+            <li><span class="pt">Offloading strategies and computing paradigms in IoT: A survey</span><span class="pa">A. Hazra, <b>P. Maurya</b>, A. Kalita, I. Sarkar</span><span class="pv">In <i>IoT Sensors, ML, AI and XAI: Empowering a Smarter World</i>, Springer</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="teaching">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Teaching, service &amp; recognition</h2>
+      </div>
+      <div class="sec-body">
+        <div class="cols">
+          <div>
+            <h3>Teaching &amp; supervision</h3>
+            <ul>
+              <li>Supervised M.Tech research projects on IoT applications, Aalborg University (2024)</li>
+              <li>Supervised B.Tech thesis projects on LoRa-based communication systems, IIT Bhilai (2024)</li>
+              <li>Ran Wireless Communication Lab sessions, IIT Bhilai (2018–2022)</li>
+              <li>Organized a student training program on wireless communication, IIT Bhilai</li>
+            </ul>
+            <h3 style="margin-top:28px">Hands-on projects</h3>
+            <ul>
+              <li>Starlink performance evaluation for rural connectivity</li>
+              <li>SDR-based dual-hop amplify-and-forward relaying</li>
+              <li>SDR-based FMCW radar prototype</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Service</h3>
+            <ul>
+              <li>Technical program committee, <strong>ACM SenSys 2026</strong></li>
+              <li>Reviewer for <i>IEEE Wireless Communications</i> and <i>Physical Communication</i></li>
+              <li>Session chair, International Conference on Recent Trends in Mathematics, Statistics and Engineering (2023)</li>
+            </ul>
+            <h3 style="margin-top:28px">Awards</h3>
+            <ul>
+              <li><strong>Best Paper Award</strong>, IEEE ANTS 2019</li>
+              <li>MHRD Research Fellowship</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Contact</h2>
+        <p>Happy to talk about collaborations, IoT deployments and student projects.</p>
+      </div>
+      <div class="sec-body">
+        <div class="contact">
+          <dl>
+            <dt>Email</dt><dd><a href="mailto:dspoonammaurya@gmail.com">dspoonammaurya@gmail.com</a></dd>
+            <dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/poonammaurya">linkedin.com/in/poonammaurya</a></dd>
+            <dt>Affiliation</dt><dd>University of California, Merced, USA</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Poonam Maurya</span>
+    <span>Last updated September 2026</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btns=document.querySelectorAll('.filters button');
+  var groups=document.querySelectorAll('.pubgroup');
+  var counts={all:0};
+  groups.forEach(function(g){var n=g.querySelectorAll('li').length;counts[g.dataset.g]=n;counts.all+=n;});
+  btns.forEach(function(b){
+    b.querySelector('.count').textContent=counts[b.dataset.f];
+    b.addEventListener('click',function(){
+      var f=b.dataset.f;
+      btns.forEach(function(x){x.setAttribute('aria-pressed',String(x===b));});
+      groups.forEach(function(g){g.classList.toggle('hidden',f!=='all'&&g.dataset.g!==f);});
+    });
+  });
+})();
+</script>
+</body>
+</html>
